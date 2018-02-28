@@ -1,14 +1,11 @@
-# kpbochenek@gmail.com
+# volkov.a@volantsoft.ru
 
 def non_unique(data):
     result = []
-    diff = 32
     for d in data:
         if data.count(d) > 1:
             result.append(d)
-        elif type(d) is str and data.count(d) + data.count(chr(ord(d) + diff)) > 1:
-            result.append(d)
-        elif type(d) is str and data.count(d) + data.count(chr(ord(d) - diff)) > 1:
+        elif type(d) is str and data.count(d) + data.count(d.upper()) + data.count(d.lower()) > 2:
             result.append(d)
     return result
 
@@ -26,3 +23,5 @@ if __name__ == "__main__":
     assert non_unique(['P', 7, 'j', 'A', 'P', 'N', 'Z', 'i',
                        'A', 'X', 'j', 'L', 'y', 's', 'K', 'g',
                        'p', 'r', 7, 'b']) == ['P', 7, 'j', 'A', 'P', 'A', 'j', 'p', 7], "Letters"
+
+    print("All done? Earn rewards by using the 'Check' button!")
