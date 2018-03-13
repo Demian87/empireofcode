@@ -1,7 +1,13 @@
-def golf(matrix):
-    return 0, 0
+def golf(m):
+    r = list()
+    c = list()
+    for i in range(0, len(m)):
+        r.append(sum(m[i]))
+    for i in range(0, len(m[0])):
+        c.append(sum([r[i] for r in m]))
+    return [r.index(min(r)), c.index(min(c))]
 
-    
+
 if __name__ == '__main__':
    # These "asserts" using only for self-checking and not necessary for auto-testing
      assert golf([[7, 2, 7, 2, 8],
